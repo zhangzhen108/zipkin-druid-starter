@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.0.3.RELEASE</version>
     </parent>
     <groupId>com.cowell.zipkin.druid</groupId>
-    <artifactId>zipkin-druid-starter</artifactId>
+    <artifactId>zipkin-druid-starter-springboot2.0</artifactId>
     <version>1.1</version>
     <properties>
         <spring-cloud.version>Dalston.SR4</spring-cloud.version>
@@ -34,8 +34,15 @@
             <version>${druid.starter.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-core</artifactId>
+            <version>4.0.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave</artifactId>
+            <version>5.1.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
