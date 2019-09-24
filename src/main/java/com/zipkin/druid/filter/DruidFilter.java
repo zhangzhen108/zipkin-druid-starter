@@ -25,14 +25,14 @@ public class DruidFilter extends FilterEventAdapter {
         span.finish();
         return druidPooledConnection;
     }
-    @Override
-    public ConnectionProxy connection_connect(FilterChain chain, Properties info) throws SQLException {
-        connection_connectBefore(chain, info);
-        Span span=tracer.nextSpan().name("druid.connect").start();
-        ConnectionProxy connection = super.connection_connect(chain, info);
-        span.finish();
-        connection_connectAfter(connection);
-
-        return connection;
-    }
+//    @Override
+//    public ConnectionProxy connection_connect(FilterChain chain, Properties info) throws SQLException {
+//        connection_connectBefore(chain, info);
+//        Span span=tracer.nextSpan().name("druid.connect").start();
+//        ConnectionProxy connection = super.connection_connect(chain, info);
+//        span.finish();
+//        connection_connectAfter(connection);
+//
+//        return connection;
+//    }
 }
