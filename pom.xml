@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.cowell.zipkin.druid</groupId>
     <artifactId>zipkin-druid-starter-springboot2.0</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <properties>
         <spring-cloud.version>Dalston.SR4</spring-cloud.version>
         <druid.starter.version>1.1.10</druid.starter.version>
