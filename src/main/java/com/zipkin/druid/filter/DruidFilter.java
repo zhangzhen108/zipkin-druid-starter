@@ -5,6 +5,8 @@ import com.alibaba.druid.filter.FilterEventAdapter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import com.alibaba.druid.proxy.jdbc.ConnectionProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.sleuth.Span;
 import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.stereotype.Component;
@@ -15,7 +17,7 @@ import java.util.Properties;
 
 public class DruidFilter extends FilterEventAdapter {
     Tracer tracer;
-
+    private final Logger log = LoggerFactory.getLogger(DruidFilter.class);
     public DruidFilter(Tracer tracer) {
         this.tracer = tracer;
     }
@@ -26,6 +28,7 @@ public class DruidFilter extends FilterEventAdapter {
         DruidPooledConnection druidPooledConnection=super.dataSource_getConnection(chain, dataSource, maxWaitMillis);
         span.tag("druid.activeCount",String.valueOf(dataSource.getActiveCount()));
         tracer.close(span);
+        log.info("druid.activeCount",String.valueOf(dataSource.getActiveCount()));
         return druidPooledConnection;
     }
 //    @Override
