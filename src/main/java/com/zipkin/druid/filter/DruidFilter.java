@@ -21,6 +21,9 @@ public class DruidFilter extends FilterEventAdapter {
         Span span=tracer.nextSpan().name("druid.connectPool.connect").start();
         DruidPooledConnection druidPooledConnection=super.dataSource_getConnection(chain, dataSource, maxWaitMillis);
         span.tag("druid.activeCount",String.valueOf(dataSource.getActiveCount()));
+        span.tag("druid.maxActive",String.valueOf(dataSource.getMaxActive()));
+        span.tag("druid.maxIdle",String.valueOf(dataSource.getMaxIdle()));
+        span.tag("druid.maxIdle",String.valueOf(dataSource.getMinIdle()));
         span.finish();
         return druidPooledConnection;
     }
