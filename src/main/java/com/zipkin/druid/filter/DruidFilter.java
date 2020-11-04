@@ -12,7 +12,6 @@ import java.util.Properties;
 
 public class DruidFilter extends FilterEventAdapter {
     Tracer tracer;
-
     public DruidFilter(Tracer tracer) {
         this.tracer = tracer;
     }
